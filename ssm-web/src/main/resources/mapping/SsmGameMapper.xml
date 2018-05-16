@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.game.mapper.SsmGameMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.game.pojo.SsmGame" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="input" property="input" jdbcType="VARCHAR" />
+    <result column="output" property="output" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, input, output
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from ssm-game
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ssm-game
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+
+  <insert id="insert" parameterType="com.ssm.game.pojo.SsmGame" >
+    insert into ssmgame (create_time, aim_point, input, output
+      )
+    values (#{create_time}, #{aim_point}, #{input}, #{output}
+      )
+  </insert>
+  <select id="selectAll" resultType="com.ssm.game.pojo.SsmGame">
+    SELECT * FROM ssmgame
+  </select>
+
+
+
+</mapper>

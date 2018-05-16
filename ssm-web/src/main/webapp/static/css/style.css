@@ -1,0 +1,7 @@
+.feedbackShow{
+    visibility: visible;
+    color: red;
+}
+.feedbackHide{
+    visibility: hidden;
+}
